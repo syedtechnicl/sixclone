@@ -1,23 +1,36 @@
+// mine
 import React, { useEffect, useState } from "react";
 import "../Styles/Cardpro.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "../Store/createSlice";
+import { fetchProducts, STATUSES } from "../Store/productSlice";
 const Cardproduct = () => {
   const dispatch = useDispatch();
 
-  const [data, setdata] = useState([]);
+  // const [data, setdata] = useState([]);
+  const { data: data, status } = useSelector((state) => state.product);
+
   useEffect(() => {
-    const mainfunc = async () => {
-      const res = await fetch("https://fakestoreapi.com/products");
-      const res2 = await res.json();
-      setdata(res2);
-    };
-    mainfunc();
+    dispatch(fetchProducts());
+    // const mainfunc = async () => {
+    //   const res = await fetch("https://fakestoreapi.com/products");
+    //   const res2 = await res.json();
+    //   setdata(res2);
+    // };
+    // mainfunc();
   }, []);
 
   const AddtoCart = (Elem) => {
     dispatch(add(Elem));
   };
+
+  if (status === STATUSES.LOADING) {
+    return <h2>Loading Please Wait...</h2>;
+  }
+
+  if (status === STATUSES.ERROR) {
+    return <h2>Something went wrong!</h2>;
+  }
 
   return (
     <div>
