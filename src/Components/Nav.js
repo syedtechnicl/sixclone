@@ -8,6 +8,11 @@ const Navbar = () => {
     <>
       <div className="navbar">
         <span className="logo">REDUX STORE</span>
+        <span
+          style={{ color: "#fff", backgroundColor: "black", padding: "20px" }}
+        >
+          Syed Muqta<span style={{ color: "red" }}>deer</span>
+        </span>
         <div className="nav-links">
           <Link className="navLink" to="/">
             Home
