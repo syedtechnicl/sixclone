@@ -1,0 +1,98 @@
+/* Container for the cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows the cards to wrap to the next row */
+  gap: 20px; /* Space between cards */
+  justify-content: space-around; /* Distribute cards evenly */
+  padding: 20px;
+}
+
+/* Individual card styling */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Lifts the card slightly on hover */
+}
+
+/* Image styling inside card */
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card content */
+.card-content {
+  padding: 15px;
+}
+
+.card-price {
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.card-description {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card {
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+/* btn */
+.btn {
+  background-color: #ff9f00; /* Flipkart's orange button color */
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: #fb641b; /* Darker orange for hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+}
+
+/* Focus state */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 159, 0, 0.5); /* Focus ring effect */
+}
+
+/* Active state */
+.btn:active {
+  background-color: #c45700; /* Even darker orange on click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+}
